@@ -802,19 +802,14 @@ const chapter5Heading =
 const chapter5Message =
 `Everyone has
 their favorite things.
-
 I think I've memorized
 quite a few of yours.
-
 Seeing all of these together...
 made me realize something.
-
 How someone can have
 so many favorite things...
-
 yet slowly become
 someone else's favorite person.
-
 Thank you
 for unknowingly becoming
 my favorite person. 🩵`;
