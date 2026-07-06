@@ -1,0 +1,1594 @@
+/*====================================================
+        HAPPY BIRTHDAY WEBSITE
+        VERSION 3.0
+====================================================*/
+
+
+
+/*====================================================
+        RESET
+====================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+
+/*====================================================
+        BODY
+====================================================*/
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+    linear-gradient(
+    to bottom,
+    #050816,
+    #0d1225,
+    #111827);
+
+    color:white;
+
+    overflow:hidden;
+
+    width:100vw;
+
+    height:100vh;
+
+}
+
+
+
+/*====================================================
+        CHAPTERS
+====================================================*/
+
+.chapter{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(30px);
+
+    transition:
+
+    opacity .9s ease,
+
+    transform .9s ease,
+
+    visibility .9s;
+
+    z-index:5;
+
+}
+
+
+
+.chapter.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
+
+
+
+/*====================================================
+        BACKGROUND
+====================================================*/
+
+#star-container{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:0;
+
+}
+
+
+
+.star{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:white;
+
+    animation:
+
+    twinkle linear infinite;
+
+}
+
+
+
+@keyframes twinkle{
+
+0%{
+
+opacity:.2;
+
+transform:scale(.8);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.35);
+
+}
+
+100%{
+
+opacity:.2;
+
+transform:scale(.8);
+
+}
+
+}
+
+
+
+/*====================================================
+        OVERLAY
+====================================================*/
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    rgba(0,0,0,.18);
+
+    z-index:1;
+
+}
+
+
+
+/*====================================================
+        MOON
+====================================================*/
+
+.moon{
+
+    position:fixed;
+
+    top:55px;
+
+    right:70px;
+
+    width:145px;
+
+    height:145px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+    circle at 30% 30%,
+
+    #fffef4,
+
+    #f6efcb 45%,
+
+    #d8cf98 72%,
+
+    #b8af7c
+
+    );
+
+    box-shadow:
+
+    0 0 30px rgba(255,255,220,.6),
+
+    0 0 70px rgba(255,255,220,.3),
+
+    0 0 120px rgba(255,255,220,.15);
+
+    overflow:hidden;
+
+    animation:
+
+    moonGlow 8s ease-in-out infinite;
+
+    z-index:2;
+
+}
+
+
+
+.moon::after{
+
+content:"";
+
+position:absolute;
+
+inset:-12px;
+
+border-radius:50%;
+
+border:2px solid rgba(255,255,255,.08);
+
+}
+
+
+
+/*====================================================
+        CRATERS
+====================================================*/
+
+.crater{
+
+position:absolute;
+
+border-radius:50%;
+
+background:
+
+rgba(180,170,120,.35);
+
+box-shadow:
+
+inset -2px -2px 4px rgba(255,255,255,.25),
+
+inset 2px 2px 6px rgba(0,0,0,.15);
+
+}
+
+.crater1{
+
+width:24px;
+height:24px;
+
+top:28px;
+left:36px;
+
+}
+
+.crater2{
+
+width:16px;
+height:16px;
+
+top:70px;
+left:75px;
+
+}
+
+.crater3{
+
+width:20px;
+height:20px;
+
+top:92px;
+left:32px;
+
+}
+
+.crater4{
+
+width:12px;
+height:12px;
+
+top:48px;
+left:95px;
+
+}
+
+.crater5{
+
+width:18px;
+height:18px;
+
+top:18px;
+left:82px;
+
+}
+
+.crater6{
+
+width:14px;
+height:14px;
+
+top:104px;
+left:94px;
+
+}
+
+
+
+/*====================================================
+        MOON ANIMATION
+====================================================*/
+
+@keyframes moonGlow{
+
+0%{
+
+transform:scale(1);
+
+filter:brightness(1);
+
+}
+
+50%{
+
+transform:scale(1.04);
+
+filter:brightness(1.08);
+
+}
+
+100%{
+
+transform:scale(1);
+
+filter:brightness(1);
+
+}
+
+}
+/*====================================================
+        MAIN CONTAINERS
+====================================================*/
+
+.container,
+.chapter-container{
+
+    position:relative;
+
+    z-index:5;
+
+    width:1100px;
+
+    max-width:92%;
+
+    text-align:center;
+
+}
+
+
+
+/*====================================================
+        HEADINGS
+====================================================*/
+
+#title{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:88px;
+
+    font-weight:400;
+
+    color:white;
+
+    margin-bottom:25px;
+
+    text-shadow:
+
+    0 0 20px white,
+
+    0 0 45px rgba(255,255,255,.35);
+
+}
+
+
+
+#chapterTitle{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:72px;
+
+    font-weight:400;
+
+    margin-bottom:45px;
+
+    text-shadow:
+
+    0 0 18px white,
+
+    0 0 40px rgba(255,255,255,.25);
+
+}
+
+
+
+/*====================================================
+        PARAGRAPHS
+====================================================*/
+
+#subtitle{
+
+    width:760px;
+
+    max-width:90%;
+
+    margin:auto;
+
+    font-size:24px;
+
+    color:#dddddd;
+
+    line-height:42px;
+
+    margin-bottom:50px;
+
+}
+
+
+
+#chapterText{
+
+    width:100%;
+
+    font-size:24px;
+
+    color:#dddddd;
+
+    line-height:42px;
+
+    white-space:pre-wrap;
+
+    min-height:270px;
+
+}
+
+
+
+/*====================================================
+        CONTENT
+====================================================*/
+
+.content{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:70px;
+
+    margin-top:20px;
+
+}
+
+
+
+.text{
+
+    flex:1;
+
+    text-align:left;
+
+}
+
+
+
+.image{
+
+    flex:0 0 270px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+/*====================================================
+        IMAGE
+====================================================*/
+
+#storyImage{
+
+    width:240px;
+
+    border-radius:24px;
+
+    opacity:0;
+
+    transform:
+
+    translateX(40px)
+
+    scale(.96);
+
+    transition:
+
+    opacity .8s ease,
+
+    transform .8s ease;
+
+    box-shadow:
+
+    0 0 35px rgba(255,255,255,.18);
+
+}
+
+
+
+#storyImage.show{
+
+    opacity:1;
+
+    transform:
+
+    translateX(0)
+
+    scale(1);
+
+}
+
+
+
+/*====================================================
+        BUTTONS
+====================================================*/
+
+button{
+
+    padding:18px 42px;
+
+    border:none;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    background:#ff4d88;
+
+    color:white;
+
+    font-size:22px;
+
+    font-family:'Poppins',sans-serif;
+
+    transition:
+    transform .25s,
+    box-shadow .25s,
+    background .25s;
+
+    box-shadow:
+
+    0 0 20px #ff4d88;
+
+}
+
+
+
+button:hover{
+
+    transform:
+
+    translateY(-3px)
+
+    scale(1.05);
+
+    box-shadow:
+
+    0 0 35px #ff4d88;
+
+}
+
+
+
+button:active{
+
+    transform:scale(.95);
+
+}
+
+
+
+/*====================================================
+        BUTTON POSITIONS
+====================================================*/
+
+#beginBtn{
+
+    opacity:0;
+
+    pointer-events:none;
+
+    margin-top:20px;
+
+}
+
+
+
+#continueBtn{
+
+    opacity:0;
+
+    pointer-events:none;
+
+    margin-top:55px;
+
+}
+
+
+
+#continueBtn.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+
+
+/*====================================================
+        FADE ANIMATIONS
+====================================================*/
+
+.fadeOut{
+
+    animation:
+
+    fadeOut .8s forwards;
+
+}
+
+
+
+.fadeIn{
+
+    animation:
+
+    fadeIn .8s forwards;
+
+}
+
+
+
+@keyframes fadeOut{
+
+from{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+to{
+
+opacity:0;
+
+transform:translateY(-25px);
+
+}
+
+}
+
+
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/*====================================================
+        GLASS CARD
+====================================================*/
+
+.chapter-container{
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(16px);
+
+    -webkit-backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:55px 60px;
+
+    box-shadow:
+
+    0 15px 60px rgba(0,0,0,.35),
+
+    0 0 40px rgba(255,255,255,.04);
+
+}
+
+
+
+/*====================================================
+        FLOATING IMAGE
+====================================================*/
+
+#storyImage.show{
+
+    animation:
+
+    imageFloat 5s ease-in-out infinite;
+
+}
+
+
+
+@keyframes imageFloat{
+
+0%{
+
+transform:
+
+translateY(0)
+
+translateX(0)
+
+scale(1);
+
+}
+
+25%{
+
+transform:
+
+translateY(-8px)
+
+translateX(2px)
+
+scale(1.02);
+
+}
+
+50%{
+
+transform:
+
+translateY(-14px)
+
+translateX(0)
+
+scale(1.03);
+
+}
+
+75%{
+
+transform:
+
+translateY(-8px)
+
+translateX(-2px)
+
+scale(1.02);
+
+}
+
+100%{
+
+transform:
+
+translateY(0)
+
+translateX(0)
+
+scale(1);
+
+}
+
+}
+
+
+
+/*====================================================
+        SHOOTING STARS
+====================================================*/
+
+.shooting-stars{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:2;
+
+}
+
+
+
+.shooting-star{
+
+    position:absolute;
+
+    width:170px;
+
+    height:2px;
+
+    background:
+
+    linear-gradient(
+
+    to right,
+
+    rgba(255,255,255,0),
+
+    rgba(255,255,255,.9),
+
+    white
+
+    );
+
+    border-radius:999px;
+
+    transform:
+
+    rotate(var(--angle));
+
+    filter:
+
+    drop-shadow(0 0 8px white);
+
+    animation:
+
+    meteor linear forwards;
+
+}
+
+
+
+@keyframes meteor{
+
+0%{
+
+opacity:0;
+
+transform:
+
+translate(0,0)
+
+rotate(var(--angle));
+
+}
+
+10%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+
+translate(-900px,500px)
+
+rotate(var(--angle));
+
+}
+
+}
+
+
+
+/*====================================================
+        BUTTON GLOW
+====================================================*/
+
+button::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+border-radius:999px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.35),
+
+transparent
+
+);
+
+transform:translateX(-120%);
+
+transition:.8s;
+
+}
+
+
+
+button{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+
+button:hover::before{
+
+transform:translateX(120%);
+
+}
+
+
+
+/*====================================================
+        TEXT SELECTION
+====================================================*/
+
+::selection{
+
+background:#ff4d88;
+
+color:white;
+
+}
+
+
+
+/*====================================================
+        SCROLLBAR
+====================================================*/
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#050816;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#ff4d88;
+
+border-radius:999px;
+
+}
+
+
+
+/*====================================================
+        SOFT PAGE GLOW
+====================================================*/
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:-250px;
+
+left:-250px;
+
+width:700px;
+
+height:700px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(255,255,255,.05),
+
+transparent 70%
+
+);
+
+pointer-events:none;
+
+z-index:0;
+
+}
+
+
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+bottom:-300px;
+
+right:-250px;
+
+width:800px;
+
+height:800px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(255,77,136,.08),
+
+transparent 70%
+
+);
+
+pointer-events:none;
+
+z-index:0;
+
+}
+
+
+
+/*====================================================
+        IMAGE HOVER
+====================================================*/
+
+#storyImage:hover{
+
+transform:
+
+scale(1.05)
+
+rotate(-2deg);
+
+transition:.4s;
+
+}
+
+
+
+/*====================================================
+        TEXT FADE
+====================================================*/
+
+#chapterText{
+
+animation:
+
+textAppear .8s ease;
+
+}
+
+
+
+@keyframes textAppear{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+/*====================================================
+        RESPONSIVE DESIGN
+====================================================*/
+
+@media(max-width:1200px){
+
+.container,
+.chapter-container{
+
+width:92%;
+
+}
+
+.content{
+
+gap:40px;
+
+}
+
+#storyImage{
+
+width:200px;
+
+}
+
+}
+
+
+
+@media(max-width:900px){
+
+.content{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.text{
+
+text-align:center;
+
+}
+
+.image{
+
+margin-top:30px;
+
+}
+
+#title{
+
+font-size:65px;
+
+}
+
+#chapterTitle{
+
+font-size:56px;
+
+}
+
+#subtitle,
+#chapterText{
+
+font-size:20px;
+
+line-height:36px;
+
+}
+
+#storyImage{
+
+width:180px;
+
+}
+
+.moon{
+
+width:120px;
+height:120px;
+
+top:30px;
+right:30px;
+
+}
+
+}
+
+
+
+@media(max-width:600px){
+
+#title{
+
+font-size:48px;
+
+}
+
+#chapterTitle{
+
+font-size:42px;
+
+}
+
+#subtitle,
+#chapterText{
+
+font-size:18px;
+
+line-height:32px;
+
+}
+
+button{
+
+font-size:18px;
+
+padding:15px 32px;
+
+}
+
+.chapter-container{
+
+padding:35px 25px;
+
+}
+
+#storyImage{
+
+width:160px;
+
+}
+
+}
+
+
+
+/*====================================================
+        SMOOTH TRANSITIONS
+====================================================*/
+
+*{
+
+transition:
+
+color .3s,
+
+background-color .3s,
+
+border-color .3s;
+
+}
+
+
+
+/*====================================================
+        BUTTON CLICK EFFECT
+====================================================*/
+
+.button-click{
+
+transform:scale(.94);
+
+box-shadow:
+
+0 0 45px
+
+rgba(255,77,136,.9);
+
+}
+
+
+
+/*====================================================
+        FADE UTILITIES
+====================================================*/
+
+.hidden{
+
+opacity:0;
+
+visibility:hidden;
+
+pointer-events:none;
+
+}
+
+.visible{
+
+opacity:1;
+
+visibility:visible;
+
+pointer-events:auto;
+
+}
+
+
+
+/*====================================================
+        IMAGE LOADING
+====================================================*/
+
+img{
+
+user-select:none;
+
+-webkit-user-drag:none;
+
+}
+
+
+
+/*====================================================
+        AUDIO
+====================================================*/
+
+audio{
+
+display:none;
+
+}
+
+
+
+/*====================================================
+        PREVENT SELECTION
+====================================================*/
+
+button,
+img{
+
+user-select:none;
+
+}
+
+
+
+/*====================================================
+        CONTAINER FADE
+====================================================*/
+
+.chapter-container,
+.container{
+
+animation:
+
+pageAppear
+
+1.2s ease;
+
+}
+
+
+
+@keyframes pageAppear{
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+
+translateY(0);
+
+}
+
+}
+
+
+
+/*====================================================
+        GLOWING TITLE
+====================================================*/
+
+#title,
+#chapterTitle{
+
+animation:
+
+titleGlow
+
+4s ease-in-out infinite;
+
+}
+
+
+
+@keyframes titleGlow{
+
+0%{
+
+text-shadow:
+
+0 0 18px white,
+
+0 0 35px rgba(255,255,255,.25);
+
+}
+
+50%{
+
+text-shadow:
+
+0 0 25px white,
+
+0 0 55px rgba(255,255,255,.45);
+
+}
+
+100%{
+
+text-shadow:
+
+0 0 18px white,
+
+0 0 35px rgba(255,255,255,.25);
+
+}
+
+}
+
+
+
+/*====================================================
+        PARAGRAPH ANIMATION
+====================================================*/
+
+#subtitle,
+#chapterText{
+
+animation:
+
+paragraphFade
+
+1s ease;
+
+}
+
+@keyframes paragraphFade{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+/*====================================================
+        FOOTER SPACING
+====================================================*/
+
+button{
+
+margin-top:45px;
+
+}
+
+
+
+/*====================================================
+        PERFORMANCE
+====================================================*/
+
+.star,
+.shooting-star,
+.moon,
+#storyImage{
+
+will-change:
+
+transform,
+
+opacity;
+
+}
+
+
+
+/*====================================================
+        END OF STYLE.CSS
+====================================================*/
+
+#storyImage2{
+
+    width:280px;
+
+    border-radius:24px;
+
+    opacity:0;
+
+    transform:
+    translateX(40px)
+    scale(.96);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+
+    box-shadow:
+    0 0 35px rgba(255,255,255,.18);
+
+}
+
+#storyImage2.show{
+
+    opacity:1;
+
+    transform:
+    translateX(0)
+    scale(1);
+
+    animation:imageFloat 5s ease-in-out infinite;
+
+}
+
+#storyImage2:hover{
+
+    filter:brightness(1.05);
+
+}
+
+
