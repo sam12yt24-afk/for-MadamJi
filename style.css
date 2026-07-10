@@ -1592,3 +1592,403 @@ opacity;
 }
 
 
+/*====================================================
+        CHAPTER 6 : CELEBRATION
+====================================================*/
+
+#chapter6Title{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:72px;
+
+    margin-bottom:20px;
+
+}
+
+#chapter6Text{
+
+    color:#e7e7e7;
+
+    text-align:center;
+
+}
+
+
+
+/*====================================================
+        CELEBRATION STAGE
+====================================================*/
+
+#celebrationStage{
+
+    position:relative;
+
+    width:100%;
+
+    height:360px;
+
+    margin-top:25px;
+
+    overflow:hidden;
+
+}
+
+
+
+/*====================================================
+        FAIRY LIGHTS
+====================================================*/
+
+#fairyLights{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:70px;
+
+    pointer-events:none;
+
+}
+
+
+
+/*====================================================
+        DECORATIONS
+====================================================*/
+
+#decorations{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+
+
+/*====================================================
+        BALLOONS
+====================================================*/
+
+#balloonContainer{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+}
+
+
+
+/*====================================================
+        CAKE
+====================================================*/
+
+#cakeArea{
+
+    position:absolute;
+
+    left:50%;
+
+    top:55%;
+
+    transform:translate(-50%,-50%);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+}
+
+
+
+/*====================================================
+        WISH AREA
+====================================================*/
+
+#wishArea{
+
+    position:absolute;
+
+    width:100%;
+
+    bottom:25px;
+
+    text-align:center;
+
+    font-size:24px;
+
+    color:white;
+
+}
+
+
+
+/*====================================================
+        FAIRY BULBS
+====================================================*/
+
+.light{
+
+    position:absolute;
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    background:#ffd95a;
+
+    box-shadow:
+
+    0 0 12px #ffd95a,
+
+    0 0 25px #ffd95a,
+
+    0 0 45px #ffd95a;
+
+    animation:lightGlow 2s ease-in-out infinite;
+
+}
+
+
+
+@keyframes lightGlow{
+
+0%{
+
+opacity:.45;
+
+transform:scale(.9);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.2);
+
+}
+
+100%{
+
+opacity:.45;
+
+transform:scale(.9);
+
+}
+
+}
+
+
+
+/*====================================================
+        STREAMERS
+====================================================*/
+
+.streamer{
+
+    position:absolute;
+
+    width:14px;
+
+    height:180px;
+
+    border-radius:20px;
+
+    animation:sway 4s ease-in-out infinite;
+
+}
+
+
+
+.streamer.red{
+
+background:#ff4d6d;
+
+}
+
+.streamer.blue{
+
+background:#5ac8ff;
+
+}
+
+.streamer.yellow{
+
+background:#ffd84d;
+
+}
+
+.streamer.pink{
+
+background:#ff78c8;
+
+}
+
+
+
+@keyframes sway{
+
+0%{
+
+transform:rotate(-5deg);
+
+}
+
+50%{
+
+transform:rotate(5deg);
+
+}
+
+100%{
+
+transform:rotate(-5deg);
+
+}
+
+}
+
+
+
+/*====================================================
+        BALLOON
+====================================================*/
+
+.balloon{
+
+    position:absolute;
+
+    bottom:-120px;
+
+    width:55px;
+
+    height:70px;
+
+    border-radius:50% 50% 45% 45%;
+
+    animation:floatUp linear forwards;
+
+}
+
+
+
+.balloon::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:68px;
+
+width:2px;
+
+height:80px;
+
+background:white;
+
+transform:translateX(-50%);
+
+opacity:.5;
+
+}
+
+
+
+@keyframes floatUp{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(-850px);
+
+}
+
+}
+
+
+
+/*====================================================
+        CAKE IMAGE
+====================================================*/
+
+#birthdayCake{
+
+    width:260px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    transition:.4s;
+
+    filter:
+
+    drop-shadow(0 0 20px rgba(255,255,255,.3));
+
+}
+
+
+
+#birthdayCake:hover{
+
+    transform:scale(1.04);
+
+}
+
+
+
+/*====================================================
+        CELEBRATION BUTTON
+====================================================*/
+
+#celebrateBtn{
+
+    margin-top:25px;
+
+}
+
+
+
+/*====================================================
+        WISH TEXT
+====================================================*/
+
+#wishArea p{
+
+    font-size:28px;
+
+    line-height:42px;
+
+    text-shadow:
+
+    0 0 18px white;
+
+}
+

@@ -780,125 +780,447 @@ chapter4Btn.onclick = ()=>{
 
 };
 
+/// =====================================
+// CHAPTER 6 (LESSON 13)
 // =====================================
-// CHAPTER 5
+
+const chapter6Title =
+document.getElementById("chapter6Title");
+
+const chapter6Text =
+document.getElementById("chapter6Text");
+
+const fairyLights =
+document.getElementById("fairyLights");
+
+const decorations =
+document.getElementById("decorations");
+
+const balloonContainer =
+document.getElementById("balloonContainer");
+
+const cakeArea =
+document.getElementById("cakeArea");
+
+const wishArea =
+document.getElementById("wishArea");
+
+const celebrateBtn =
+document.getElementById("celebrateBtn");
+
+let celebrationStep = 0;
+
+
 // =====================================
-
-const chapter5Title =
-document.getElementById("chapter5Title");
-
-const chapter5Text =
-document.getElementById("chapter5Text");
-
-const chapter5Image =
-document.getElementById("storyImage4");
-
-const chapter5Btn =
-document.getElementById("chapter5Btn");
-
-const chapter5Heading =
-"A Little Collection of Your Favorites ❤️";
-
-const chapter5Message =
-`Everyone has
-their favorite things.
-I think I've memorized
-quite a few of yours.
-Seeing all of these together...
-made me realize something.
-How someone can have
-so many favorite things...
-yet slowly become
-someone else's favorite person.
-Thank you
-for unknowingly becoming
-my favorite person. 🩵`;
-
-let c5h = 0;
-let c5p = 0;
-
-function typeChapter5Heading(){
-
-    chapter5Title.innerHTML = "";
-    chapter5Text.innerHTML = "";
-
-    chapter5Image.src = "images/favorites.png";
-    chapter5Image.classList.add("show");
-
-    chapter5Btn.classList.remove("show");
-
-    c5h = 0;
-    c5p = 0;
-
-    typing = true;
-
-    typeHeading5();
-
-}
-
-function typeHeading5(){
-
-    if(c5h < chapter5Heading.length){
-
-        chapter5Title.innerHTML +=
-        chapter5Heading.charAt(c5h);
-
-        c5h++;
-
-        setTimeout(typeHeading5,70);
-
-    }
-
-    else{
-
-        setTimeout(typeMessage5,500);
-
-    }
-
-}
-
-function typeMessage5(){
-
-    if(c5p < chapter5Message.length){
-
-        const ch =
-        chapter5Message.charAt(c5p);
-
-        if(ch === "\n"){
-
-            chapter5Text.innerHTML += "<br>";
-
-        }
-
-        else{
-
-            chapter5Text.innerHTML += ch;
-
-        }
-
-        c5p++;
-
-        setTimeout(typeMessage5,30);
-
-    }
-
-    else{
-
-        typing = false;
-
-        setTimeout(()=>{
-
-            chapter5Btn.classList.add("show");
-
-        },500);
-
-    }
-
-}
+// Chapter 5 -> Chapter 6
+// =====================================
 
 chapter5Btn.onclick = ()=>{
 
-    alert("Lesson 13 😄");
+    document
+    .getElementById("chapter5")
+    .classList.remove("active");
+
+    document
+    .getElementById("chapter6")
+    .classList.add("active");
 
 };
+
+
+
+// =====================================
+// MAIN BUTTON
+// =====================================
+
+celebrateBtn.onclick = ()=>{
+
+switch(celebrationStep){
+
+case 0:
+
+turnLightsOn();
+
+celebrateBtn.innerHTML =
+"🎀 Decorate";
+
+break;
+
+
+
+case 1:
+
+decorateRoom();
+
+celebrateBtn.innerHTML =
+"🎈 Bring Balloons";
+
+break;
+
+
+
+case 2:
+
+releaseBalloons();
+
+celebrateBtn.innerHTML =
+"🎂 Cake Time";
+
+break;
+
+
+
+case 3:
+
+showCake();
+
+celebrateBtn.innerHTML =
+"🌠 Make A Wish";
+
+break;
+
+
+
+case 4:
+
+makeWish();
+
+celebrateBtn.innerHTML =
+"❤️ Wish Made";
+
+break;
+
+
+
+case 5:
+
+alert("Lesson 14 Coming Next ❤️");
+
+break;
+
+}
+
+celebrationStep++;
+
+};
+
+
+
+// =====================================
+// LIGHTS
+// =====================================
+
+function turnLightsOn(){
+
+for(let i=0;i<18;i++){
+
+const bulb =
+document.createElement("div");
+
+bulb.className = "light";
+
+bulb.style.left =
+(3 + i*5.3)+"%";
+
+bulb.style.top =
+(Math.random()*18)+"px";
+
+bulb.style.animationDelay =
+(Math.random()*2)+"s";
+
+fairyLights.appendChild(bulb);
+
+}
+
+}
+
+
+
+// =====================================
+// DECORATIONS
+// =====================================
+
+function decorateRoom(){
+
+const colors =
+
+["red","blue","yellow","pink"];
+
+for(let i=0;i<14;i++){
+
+const streamer =
+document.createElement("div");
+
+streamer.className =
+"streamer "+colors[i%4];
+
+streamer.style.left =
+(5+i*7)+"%";
+
+streamer.style.top="-15px";
+
+streamer.style.animationDelay =
+(Math.random()*2)+"s";
+
+decorations.appendChild(streamer);
+
+}
+
+}
+
+
+
+// =====================================
+// BALLOONS
+// =====================================
+
+function releaseBalloons(){
+
+setInterval(()=>{
+
+const balloon =
+document.createElement("div");
+
+balloon.className = "balloon";
+
+const colors=[
+
+"#ff4d6d",
+
+"#6ec6ff",
+
+"#ffd84d",
+
+"#ff7cc8",
+
+"#90ee90"
+
+];
+
+balloon.style.background =
+
+colors[Math.floor(
+
+Math.random()*colors.length)];
+
+balloon.style.left =
+
+Math.random()*95+"%";
+
+balloon.style.animationDuration =
+
+(8+Math.random()*5)+"s";
+
+balloonContainer.appendChild(balloon);
+
+setTimeout(()=>{
+
+balloon.remove();
+
+},14000);
+
+},500);
+
+}
+
+
+
+// =====================================
+// CAKE
+// =====================================
+
+function showCake(){
+
+cakeArea.innerHTML = `
+
+<img
+id="birthdayCake"
+src="images/cake.png">
+
+<p id="cakeInstruction"
+style="
+margin-top:18px;
+font-size:22px;
+">
+
+👉 Swipe across the cake
+to cut it.
+
+</p>
+
+`;
+
+enableCakeCut();
+
+}
+
+// =====================================
+// CAKE CUT
+// =====================================
+
+function enableCakeCut(){
+
+const cake =
+document.getElementById("birthdayCake");
+
+let dragging = false;
+
+cake.addEventListener("mousedown",()=>{
+
+dragging = true;
+
+});
+
+document.addEventListener("mouseup",()=>{
+
+dragging = false;
+
+});
+
+cake.addEventListener("mousemove",(e)=>{
+
+if(!dragging) return;
+
+cutCake();
+
+});
+
+
+
+// Mobile
+
+cake.addEventListener("touchmove",(e)=>{
+
+cutCake();
+
+});
+
+}
+
+// =====================================
+// CUT CAKE
+// =====================================
+
+function cutCake(){
+
+const cake =
+document.getElementById("birthdayCake");
+
+const text =
+document.getElementById("cakeInstruction");
+
+if(cake.dataset.cut) return;
+
+cake.dataset.cut = true;
+
+cake.src = "images/cake-cut.png";
+
+cake.style.transform =
+"scale(1.08)";
+
+text.innerHTML =
+
+"🎉 Cake Cut! 🎉";
+
+launchConfetti();
+
+setTimeout(()=>{
+
+wishArea.innerHTML = `
+
+<p>
+
+Now...
+
+Close your eyes.<br><br>
+
+Make one wish. 🌠
+
+</p>
+
+`;
+
+celebrateBtn.innerHTML =
+"❤️ Wish Made";
+
+celebrationStep = 5;
+
+},1800);
+
+}// =====================================
+// CONFETTI
+// =====================================
+
+function launchConfetti(){
+
+for(let i=0;i<80;i++){
+
+const piece =
+document.createElement("div");
+
+piece.style.position="absolute";
+
+piece.style.left="50%";
+
+piece.style.top="50%";
+
+piece.style.width="8px";
+
+piece.style.height="8px";
+
+piece.style.background=
+
+`hsl(${Math.random()*360},90%,65%)`;
+
+piece.style.pointerEvents="none";
+
+piece.style.borderRadius="50%";
+
+piece.style.zIndex="999";
+
+document.body.appendChild(piece);
+
+const x=(Math.random()-0.5)*700;
+
+const y=(Math.random()-0.5)*700;
+
+piece.animate([
+
+{
+
+transform:
+
+"translate(0,0)",
+
+opacity:1
+
+},
+
+{
+
+transform:
+
+`translate(${x}px,${y}px)`,
+
+opacity:0
+
+}
+
+],{
+
+duration:1800
+
+});
+
+setTimeout(()=>{
+
+piece.remove();
+
+},1800);
+
+}
+
+}
+
+
 
