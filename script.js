@@ -770,6 +770,10 @@ function typeMessage4(){
 // GO TO LESSON 13
 // =====================================
 
+// =====================================
+// CHAPTER 4 → CHAPTER 5
+// =====================================
+
 chapter4Btn.onclick = ()=>{
 
     document
@@ -777,10 +781,31 @@ chapter4Btn.onclick = ()=>{
     .classList.remove("active");
 
     document
+    .getElementById("chapter5")
+    .classList.add("active");
+
+    typeChapter5Heading();
+
+};
+
+
+
+// =====================================
+// CHAPTER 5 → CHAPTER 6
+// =====================================
+
+chapter5Btn.onclick = ()=>{
+
+    document
+    .getElementById("chapter5")
+    .classList.remove("active");
+
+    document
     .getElementById("chapter6")
     .classList.add("active");
 
 };
+
 
 
 // =====================================
@@ -814,82 +839,70 @@ document.getElementById("celebrateBtn");
 let celebrationStep = 0;
 
 
+
 // =====================================
 // MAIN BUTTON
 // =====================================
 
 celebrateBtn.onclick = ()=>{
 
-switch(celebrationStep){
+    switch(celebrationStep){
 
-case 0:
+        case 0:
 
-turnLightsOn();
+            turnLightsOn();
 
-celebrateBtn.innerHTML =
-"🎀 Decorate";
+            celebrateBtn.innerHTML =
+            "🎀 Decorate";
 
-break;
-
-
-
-case 1:
-
-decorateRoom();
-
-celebrateBtn.innerHTML =
-"🎈 Bring Balloons";
-
-break;
+            break;
 
 
 
-case 2:
+        case 1:
 
-releaseBalloons();
+            decorateRoom();
 
-celebrateBtn.innerHTML =
-"🎂 Cake Time";
+            celebrateBtn.innerHTML =
+            "🎈 Bring Balloons";
 
-break;
-
-
-
-case 3:
-
-showCake();
-
-celebrateBtn.style.display = "none";
-
-break;
+            break;
 
 
 
-case 4:
+        case 2:
 
-makeWish();
+            releaseBalloons();
 
-celebrateBtn.innerHTML =
-"❤️ Wish Made";
+            celebrateBtn.innerHTML =
+            "🎂 Cake Time";
 
-break;
+            break;
 
 
 
-case 5:
+        case 3:
 
-alert("Lesson 14 Coming Next ❤️");
+            showCake();
 
-break;
+            celebrateBtn.style.display =
+            "none";
 
-}
+            break;
 
-celebrationStep++;
+
+
+        case 5:
+
+            alert("Lesson 14 Coming Next ❤️");
+
+            break;
+
+    }
+
+    celebrationStep++;
 
 };
-
-
-
 // =====================================
 // LIGHTS
 // =====================================
@@ -1134,7 +1147,8 @@ your heart smile.
 
 setTimeout(()=>{
 
-    celebrateBtn.style.display = "inline-block";
+    celebrateBtn.style.display =
+    "inline-block";
 
     celebrateBtn.innerHTML =
     "❤️ Wish Made";
@@ -1144,8 +1158,7 @@ setTimeout(()=>{
 },3000);
 
 },1800);
-
-}// =====================================
+// =====================================
 // CONFETTI
 // =====================================
 
@@ -1221,4 +1234,4 @@ piece.remove();
 }
 
 
-
+}
