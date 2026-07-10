@@ -766,6 +766,10 @@ function typeMessage4(){
 
 }
 
+// =====================================
+// GO TO LESSON 13
+// =====================================
+
 chapter4Btn.onclick = ()=>{
 
     document
@@ -773,14 +777,13 @@ chapter4Btn.onclick = ()=>{
     .classList.remove("active");
 
     document
-    .getElementById("chapter5")
+    .getElementById("chapter6")
     .classList.add("active");
-
-    typeChapter5Heading();
 
 };
 
-/// =====================================
+
+// =====================================
 // CHAPTER 6 (LESSON 13)
 // =====================================
 
@@ -809,24 +812,6 @@ const celebrateBtn =
 document.getElementById("celebrateBtn");
 
 let celebrationStep = 0;
-
-
-// =====================================
-// Chapter 5 -> Chapter 6
-// =====================================
-
-chapter5Btn.onclick = ()=>{
-
-    document
-    .getElementById("chapter5")
-    .classList.remove("active");
-
-    document
-    .getElementById("chapter6")
-    .classList.add("active");
-
-};
-
 
 
 // =====================================
@@ -874,8 +859,7 @@ case 3:
 
 showCake();
 
-celebrateBtn.innerHTML =
-"🌠 Make A Wish";
+celebrateBtn.style.display = "none";
 
 break;
 
@@ -1128,22 +1112,36 @@ setTimeout(()=>{
 
 wishArea.innerHTML = `
 
+<div class="wish-box">
+
+<h3>🌠 Make a Wish 🌠</h3>
+
 <p>
 
-Now...
+Close your eyes...
 
-Close your eyes.<br><br>
+Take a deep breath...
 
-Make one wish. 🌠
+And wish for
+whatever makes
+your heart smile.
 
 </p>
 
+</div>
+
 `;
 
-celebrateBtn.innerHTML =
-"❤️ Wish Made";
+setTimeout(()=>{
 
-celebrationStep = 5;
+    celebrateBtn.style.display = "inline-block";
+
+    celebrateBtn.innerHTML =
+    "❤️ Wish Made";
+
+    celebrationStep = 5;
+
+},3000);
 
 },1800);
 
