@@ -788,7 +788,120 @@ chapter4Btn.onclick = ()=>{
 
 };
 
+// =====================================
+// CHAPTER 5
+// =====================================
 
+const chapter5Title =
+document.getElementById("chapter5Title");
+
+const chapter5Text =
+document.getElementById("chapter5Text");
+
+const chapter5Image =
+document.getElementById("storyImage4");
+
+const chapter5Btn =
+document.getElementById("chapter5Btn");
+
+const chapter5Heading =
+"A Little Collection of Your Favorites ❤️";
+
+const chapter5Message =
+`Everyone has
+their favorite things.
+
+I think I've memorized
+quite a few of yours.
+
+How someone can have
+so many favorite things...
+yet slowly become
+someone else's favorite person.
+
+Thank you
+for unknowingly becoming
+my favorite person. 🩵`;
+
+let c5h = 0;
+let c5p = 0;
+
+function typeChapter5Heading(){
+
+    chapter5Title.innerHTML = "";
+    chapter5Text.innerHTML = "";
+
+    chapter5Image.src =
+    "images/favorites.png";
+
+    chapter5Image.classList.add("show");
+
+    chapter5Btn.classList.remove("show");
+
+    c5h = 0;
+    c5p = 0;
+
+    typeHeading5();
+
+}
+
+function typeHeading5(){
+
+    if(c5h < chapter5Heading.length){
+
+        chapter5Title.innerHTML +=
+        chapter5Heading.charAt(c5h);
+
+        c5h++;
+
+        setTimeout(typeHeading5,70);
+
+    }
+
+    else{
+
+        setTimeout(typeMessage5,500);
+
+    }
+
+}
+
+function typeMessage5(){
+
+    if(c5p < chapter5Message.length){
+
+        const ch =
+        chapter5Message.charAt(c5p);
+
+        if(ch === "\n"){
+
+            chapter5Text.innerHTML += "<br>";
+
+        }
+
+        else{
+
+            chapter5Text.innerHTML += ch;
+
+        }
+
+        c5p++;
+
+        setTimeout(typeMessage5,30);
+
+    }
+
+    else{
+
+        setTimeout(()=>{
+
+            chapter5Btn.classList.add("show");
+
+        },500);
+
+    }
+
+}
 
 // =====================================
 // CHAPTER 5 → CHAPTER 6
