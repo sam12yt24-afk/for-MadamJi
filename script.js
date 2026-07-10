@@ -1231,7 +1231,7 @@ cake.style.transform =
 text.innerHTML =
 
 "🎉 Cake Cut! 🎉";
-
+}
 launchConfetti();
 
 setTimeout(()=>{
@@ -1347,4 +1347,4 @@ piece.remove();
 }
 
 
-}
+
