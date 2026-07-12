@@ -951,6 +951,14 @@ document.getElementById("celebrateBtn");
 
 let celebrationStep = 0;
 
+wishArea.innerHTML = "";
+cakeArea.innerHTML = "";
+fairyLights.innerHTML = "";
+decorations.innerHTML = "";
+balloonContainer.innerHTML = "";
+
+celebrateBtn.style.display = "inline-block";
+celebrateBtn.innerHTML = "💡 Turn Lights On";
 
 
 // =====================================
