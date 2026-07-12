@@ -2033,9 +2033,9 @@ transition:2s;
 
 font-family:'Great Vibes',cursive;
 
-font-size:95px;
+font-size:120px;
 
-line-height:110px;
+line-height:135px;
 
 margin-bottom:45px;
 
@@ -2051,7 +2051,7 @@ text-shadow:
 
 #finalText1{
 
-font-size:38px;
+font-size:46px;
 
 margin-top:20px;
 
@@ -2065,7 +2065,7 @@ text-shadow:
 
 #finalText2{
 
-font-size:34px;
+font-size:42px;
 
 margin-top:35px;
 
@@ -2079,9 +2079,9 @@ text-shadow:
 
 #finalSignature{
 
-margin-top:70px;
+margin-top:90px;
 
-font-size:32px;
+font-size:38px;
 
 font-style:italic;
 
@@ -2205,31 +2205,18 @@ scale(2.2);
 
 }
 
+#chapter7 .chapter-container{
 
+background:none;
 
-/*====================================================
-                DIM EFFECT
-====================================================*/
+border:none;
 
-body.finalDim{
+box-shadow:none;
 
-animation:
+backdrop-filter:none;
 
-finalDim 4s forwards;
+-webkit-backdrop-filter:none;
 
-}
+padding:0;
 
-@keyframes finalDim{
-
-0%{
-
-filter:brightness(1);
-
-}
-
-100%{
-
-filter:brightness(.45);
-
-}
 }

@@ -1572,6 +1572,6 @@ function finalEffect(){
 
     finalMeteor.classList.add("fly");
 
-    document.body.classList.add("finalDim");
+  
 
 }
