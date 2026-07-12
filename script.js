@@ -93,7 +93,7 @@ let musicStarted = false;
 // MUSIC
 // ======================================================
 
-music.volume = 0.30;
+music.volume = 0.50;
 
 function startMusic(){
 
