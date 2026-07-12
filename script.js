@@ -1015,9 +1015,9 @@ celebrateBtn.onclick = ()=>{
 
         case 5:
 
-            alert("Lesson 14 Coming Next ❤️");
+    startFinalChapter();
 
-            break;
+    break;
 
     }
 
@@ -1358,3 +1358,220 @@ piece.remove();
 
 
 
+// =====================================
+// FINAL CHAPTER
+// =====================================
+
+const surpriseScreen =
+document.getElementById("surpriseScreen");
+
+const finalMessage =
+document.getElementById("finalMessage");
+
+const finalHeading =
+document.getElementById("finalHeading");
+
+const finalText1 =
+document.getElementById("finalText1");
+
+const finalText2 =
+document.getElementById("finalText2");
+
+const finalSignature =
+document.getElementById("finalSignature");
+
+const finalMeteor =
+document.getElementById("finalMeteor");
+
+
+
+function startFinalChapter(){
+
+    document
+    .getElementById("chapter6")
+    .classList.remove("active");
+
+    document
+    .getElementById("chapter7")
+    .classList.add("active");
+
+
+
+    surpriseScreen.style.opacity="1";
+
+
+
+    setTimeout(()=>{
+
+        surpriseScreen.style.opacity="0";
+
+    },2500);
+
+
+
+    setTimeout(()=>{
+
+        surpriseScreen.style.display="none";
+
+        finalMessage.style.opacity="1";
+
+        typeFinalHeading();
+
+    },4200);
+
+}
+
+
+
+function typeText(
+
+element,
+
+text,
+
+speed,
+
+finished
+
+){
+
+    let i=0;
+
+    element.innerHTML="";
+
+
+
+    function type(){
+
+
+
+        if(i>=text.length){
+
+            if(finished) finished();
+
+            return;
+
+        }
+
+
+
+        const ch=text.charAt(i);
+
+
+
+        if(ch=="\n"){
+
+            element.innerHTML+="<br>";
+
+        }
+
+        else{
+
+            element.innerHTML+=ch;
+
+        }
+
+
+
+        i++;
+
+        setTimeout(type,speed);
+
+    }
+
+
+
+    type();
+
+}
+
+
+
+function typeFinalHeading(){
+
+    typeText(
+
+        finalHeading,
+
+`Happy Birthday,
+Meri Madam Jiii ❤️`,
+
+55,
+
+()=>{
+
+    setTimeout(typeFinalText1,700);
+
+});
+
+}
+
+
+
+function typeFinalText1(){
+
+    typeText(
+
+        finalText1,
+
+"Thank you for existing.",
+
+45,
+
+()=>{
+
+    setTimeout(typeFinalText2,700);
+
+});
+
+}
+
+
+
+function typeFinalText2(){
+
+    typeText(
+
+        finalText2,
+
+"Love you so much. 🩵🫶",
+
+45,
+
+()=>{
+
+    setTimeout(typeSignature,700);
+
+});
+
+}
+
+
+
+function typeSignature(){
+
+    typeText(
+
+        finalSignature,
+
+"- Your Scardyy Brat",
+
+45,
+
+()=>{
+
+        setTimeout(finalEffect,1800);
+
+});
+
+}
+
+
+
+function finalEffect(){
+
+    finalMeteor.classList.add("fly");
+
+    document.body.classList.add("finalDim");
+
+}
