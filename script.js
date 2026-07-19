@@ -379,10 +379,57 @@ function showImage(src){
 // ======================================================
 // START WEBSITE
 // ======================================================
+// =====================================
+// PRELOAD IMAGES
+// =====================================
 
-meteorLoop();
+const imagesToPreload = [
 
-loadLandingPage();
+    "images/cat1.jpg",
+    "images/cat2.jpg",
+    "images/cat3jpg.jpg",
+    "images/favorites.png",
+    "images/cake.png",
+    "images/cake-cut.png"
+
+];
+
+function preloadImages(callback){
+
+    let loaded = 0;
+
+    imagesToPreload.forEach(src=>{
+
+        const img = new Image();
+
+        img.onload = imageLoaded;
+        img.onerror = imageLoaded;
+
+        img.src = src;
+
+    });
+
+    function imageLoaded(){
+
+        loaded++;
+
+        if(loaded === imagesToPreload.length){
+
+            callback();
+
+        }
+
+    }
+
+}
+
+preloadImages(()=>{
+
+    meteorLoop();
+
+    loadLandingPage();
+
+});
 // ======================================================
 // PART 2A
 // CHAPTER MANAGER
@@ -1298,9 +1345,9 @@ piece.style.left="50%";
 
 piece.style.top="50%";
 
-piece.style.width="8px";
+piece.style.width="6px";
 
-piece.style.height="8px";
+piece.style.height="7px";
 
 piece.style.background=
 
