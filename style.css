@@ -882,6 +882,34 @@ button{
 
     0 0 20px #ff4d88;
 
+    animation:
+
+    buttonBreathe 3.5s ease-in-out infinite;
+
+}
+
+
+
+@keyframes buttonBreathe{
+
+0%{
+
+box-shadow:0 0 20px #ff4d88;
+
+}
+
+50%{
+
+box-shadow:0 0 30px #ff4d88;
+
+}
+
+100%{
+
+box-shadow:0 0 20px #ff4d88;
+
+}
+
 }
 
 
@@ -1746,7 +1774,35 @@ animation:
 
 pageAppear
 
-1.2s ease;
+1.2s ease,
+
+cardBreathe
+
+9s ease-in-out infinite;
+
+}
+
+
+
+@keyframes cardBreathe{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-4px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
 
 }
 
@@ -1783,13 +1839,45 @@ translateY(0);
 ====================================================*/
 
 #title,
-#chapterTitle{
+#chapterTitle,
+#chapter3Title,
+#chapter4Title,
+#chapter5Title,
+#chapter6Title{
 
 animation:
 
 titleGlow
 
-4s ease-in-out infinite;
+4s ease-in-out infinite,
+
+titleBreathe
+
+6s ease-in-out infinite;
+
+}
+
+
+
+@keyframes titleBreathe{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.015);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
 
 }
 
@@ -1939,6 +2027,76 @@ opacity;
 #storyImage2:hover{
 
     filter:brightness(1.05);
+
+}
+
+
+
+/*====================================================
+        STORY IMAGE 3 & 4 (CHAPTERS 4 & 5)
+====================================================*/
+
+#storyImage3{
+
+    width:260px;
+
+    border-radius:24px;
+
+    opacity:0;
+
+    transform:
+    translateX(40px)
+    scale(.96);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+
+    box-shadow:
+    0 0 35px rgba(255,255,255,.18);
+
+}
+
+#storyImage3.show{
+
+    opacity:1;
+
+    transform:
+    translateX(0)
+    scale(1);
+
+    animation:imageFloat 5s ease-in-out infinite;
+
+}
+
+#storyImage4{
+
+    opacity:0;
+
+    transform:
+    translateX(40px)
+    scale(.96);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 0 35px rgba(255,255,255,.18);
+
+}
+
+#storyImage4.show{
+
+    opacity:1;
+
+    transform:
+    translateX(0)
+    scale(1);
+
+    animation:imageFloat 5s ease-in-out infinite;
 
 }
 

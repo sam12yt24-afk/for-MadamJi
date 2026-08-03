@@ -111,6 +111,26 @@ musicStarted = true;
 
 
 // ======================================================
+// SOUND EFFECTS
+// ======================================================
+
+function playSound(id, volume=0.15){
+
+    const original = document.getElementById(id);
+
+    if(!original) return;
+
+    const sound = original.cloneNode(true);
+
+    sound.volume = volume;
+
+    sound.play().catch(()=>{});
+
+}
+
+
+
+// ======================================================
 // STAR GENERATOR
 // ======================================================
 
@@ -209,6 +229,8 @@ createParticles();
 // ======================================================
 
 function createMeteor(){
+
+    playSound("meteorSound", 0.1);
 
     const meteor = document.createElement("div");
 
@@ -572,6 +594,8 @@ beginBtn.addEventListener("click",()=>{
 
     startMusic();
 
+    playSound("buttonSound");
+
     beginBtn.classList.add("button-click");
 
     chapter1.classList.add("fadeOut");
@@ -687,6 +711,8 @@ I still think that's one of the nicest things fate has ever done.`;
 
 continueBtn.onclick = ()=>{
 
+    playSound("pageTurnSound");
+
     document.getElementById("chapter2").classList.remove("active");
     document.getElementById("chapter3").classList.add("active");
 
@@ -798,6 +824,8 @@ function typeMessage3(){
 }
 
 chapter3Btn.onclick = ()=>{
+
+    playSound("pageTurnSound");
 
     document.getElementById("chapter3").classList.remove("active");
     document.getElementById("chapter4").classList.add("active");
@@ -925,6 +953,8 @@ function typeMessage4(){
 // =====================================
 
 chapter4Btn.onclick = ()=>{
+
+    playSound("pageTurnSound");
 
     document
     .getElementById("chapter4")
@@ -1059,6 +1089,8 @@ function typeMessage5(){
 
 chapter5Btn.onclick = ()=>{
 
+    playSound("pageTurnSound");
+
     document
     .getElementById("chapter5")
     .classList.remove("active");
@@ -1123,6 +1155,8 @@ celebrateBtn.onclick = ()=>{
 
             turnLightsOn();
 
+            playSound("lightsSound");
+
             celebrateBtn.innerHTML =
             "🎀 Decorate";
 
@@ -1133,6 +1167,8 @@ celebrateBtn.onclick = ()=>{
         case 1:
 
             decorateRoom();
+
+            playSound("buttonSound");
 
             celebrateBtn.innerHTML =
             "🎈 Bring Balloons";
@@ -1145,6 +1181,8 @@ celebrateBtn.onclick = ()=>{
 
             releaseBalloons();
 
+            playSound("buttonSound");
+
             celebrateBtn.innerHTML =
             "🎂 Cake Time";
 
@@ -1156,6 +1194,8 @@ celebrateBtn.onclick = ()=>{
 
             showCake();
 
+            playSound("buttonSound");
+
             celebrateBtn.style.display =
             "none";
 
@@ -1164,6 +1204,8 @@ celebrateBtn.onclick = ()=>{
 
 
         case 5:
+
+    playSound("buttonSound");
 
     startFinalChapter();
 
@@ -1389,6 +1431,8 @@ cake.style.transform =
 text.innerHTML =
 
 "🎉 Cake Cut! 🎉";
+
+playSound("cakeSound");
 
 launchConfetti();
 
