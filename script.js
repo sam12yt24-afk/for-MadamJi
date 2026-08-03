@@ -512,7 +512,7 @@ function preloadImages(callback){
 
             loadingStatus.style.animation = "statusFade .6s ease";
 
-            setTimeout(callback,900);
+            setTimeout(callback,350);
 
         }
 
@@ -530,7 +530,7 @@ preloadImages(()=>{
 
         loadLandingPage();
 
-    },1000);
+    },500);
 
 });
 // ======================================================
