@@ -198,25 +198,27 @@ transform:scale(.8);
 
     radial-gradient(
 
-    circle at 30% 30%,
+    circle at 32% 28%,
 
-    #fffef4,
+    #ffffff,
 
-    #f6efcb 45%,
+    #eef1fa 38%,
 
-    #d8cf98 72%,
+    #d3d9ea 65%,
 
-    #b8af7c
+    #aab2c8 88%,
+
+    #8f97ad 100%
 
     );
 
     box-shadow:
 
-    0 0 30px rgba(255,255,220,.6),
+    0 0 25px rgba(210,225,255,.55),
 
-    0 0 70px rgba(255,255,220,.3),
+    0 0 60px rgba(180,205,255,.35),
 
-    0 0 120px rgba(255,255,220,.15);
+    0 0 110px rgba(150,190,255,.18);
 
     overflow:hidden;
 
@@ -224,7 +226,7 @@ transform:scale(.8);
 
     moonGlow 8s ease-in-out infinite;
 
-    z-index:2;
+    z-index:3;
 
 }
 
@@ -258,7 +260,7 @@ border-radius:50%;
 
 background:
 
-rgba(180,170,120,.35);
+rgba(150,160,185,.35);
 
 box-shadow:
 
@@ -328,6 +330,16 @@ left:94px;
 
 }
 
+.crater7{
+
+width:10px;
+height:10px;
+
+top:60px;
+left:110px;
+
+}
+
 
 
 /*====================================================
@@ -361,6 +373,285 @@ filter:brightness(1);
 }
 
 }
+
+
+
+/*====================================================
+        MOON HAZE
+====================================================*/
+
+.moon-haze{
+
+    position:fixed;
+
+    top:-50px;
+
+    right:-35px;
+
+    width:355px;
+
+    height:355px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    rgba(190,210,255,.16),
+
+    rgba(190,210,255,.07) 45%,
+
+    transparent 72%
+
+    );
+
+    filter:blur(6px);
+
+    pointer-events:none;
+
+    z-index:2;
+
+    animation:
+
+    hazeBreathe 10s ease-in-out infinite;
+
+}
+
+@keyframes hazeBreathe{
+
+0%{
+
+opacity:.7;
+
+transform:scale(1);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+opacity:.7;
+
+transform:scale(1);
+
+}
+
+}
+
+
+
+/*====================================================
+        MOON RAYS
+====================================================*/
+
+.moon-rays{
+
+    position:fixed;
+
+    top:-73px;
+
+    right:-58px;
+
+    width:400px;
+
+    height:400px;
+
+    border-radius:50%;
+
+    background:
+
+    repeating-conic-gradient(
+
+    rgba(255,255,255,.05) 0deg,
+
+    rgba(255,255,255,.05) 2deg,
+
+    transparent 2deg,
+
+    transparent 14deg
+
+    );
+
+    mix-blend-mode:screen;
+
+    opacity:.5;
+
+    pointer-events:none;
+
+    z-index:2;
+
+    animation:
+
+    raysRotate 90s linear infinite;
+
+}
+
+@keyframes raysRotate{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+
+/*====================================================
+        MOON CLOUDS
+====================================================*/
+
+.moon-clouds{
+
+    position:fixed;
+
+    top:-23px;
+
+    right:-158px;
+
+    width:600px;
+
+    height:300px;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:2;
+
+}
+
+.cloud{
+
+    position:absolute;
+
+    width:220px;
+
+    height:55px;
+
+    background:
+
+    radial-gradient(
+
+    ellipse at center,
+
+    rgba(230,235,250,.30),
+
+    rgba(230,235,250,.10) 60%,
+
+    transparent 80%
+
+    );
+
+    filter:blur(4px);
+
+    border-radius:50%;
+
+}
+
+.cloud1{
+
+top:70px;
+
+right:-260px;
+
+animation:
+
+cloudDrift1 34s linear infinite;
+
+}
+
+.cloud2{
+
+top:130px;
+
+right:-380px;
+
+width:280px;
+
+height:65px;
+
+opacity:.7;
+
+animation:
+
+cloudDrift2 46s linear infinite;
+
+animation-delay:6s;
+
+}
+
+.cloud3{
+
+top:40px;
+
+right:-320px;
+
+width:180px;
+
+height:45px;
+
+opacity:.55;
+
+animation:
+
+cloudDrift1 40s linear infinite;
+
+animation-delay:18s;
+
+}
+
+@keyframes cloudDrift1{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+100%{
+
+transform:translateX(-640px);
+
+}
+
+}
+
+@keyframes cloudDrift2{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+100%{
+
+transform:translateX(-760px);
+
+}
+
+}
+
+
+
 /*====================================================
         MAIN CONTAINERS
 ====================================================*/
@@ -855,7 +1146,7 @@ scale(1);
 
     position:absolute;
 
-    width:170px;
+    width:190px;
 
     height:2px;
 
@@ -867,9 +1158,9 @@ scale(1);
 
     rgba(255,255,255,0),
 
-    rgba(255,255,255,.9),
+    rgba(210,225,255,.85),
 
-    white
+    #ffffff
 
     );
 
@@ -881,11 +1172,41 @@ scale(1);
 
     filter:
 
-    drop-shadow(0 0 8px white);
+    drop-shadow(0 0 6px rgba(210,225,255,.9))
+
+    drop-shadow(0 0 14px rgba(180,210,255,.5));
 
     animation:
 
     meteor linear forwards;
+
+}
+
+.shooting-star::after{
+
+content:"";
+
+position:absolute;
+
+right:-2px;
+
+top:50%;
+
+width:6px;
+
+height:6px;
+
+border-radius:50%;
+
+background:white;
+
+transform:translateY(-50%);
+
+box-shadow:
+
+0 0 10px 3px rgba(255,255,255,.9),
+
+0 0 20px 6px rgba(180,210,255,.6);
 
 }
 
@@ -1229,6 +1550,36 @@ height:120px;
 
 top:30px;
 right:30px;
+
+}
+
+.moon-haze{
+
+width:280px;
+height:280px;
+
+top:-50px;
+right:-50px;
+
+}
+
+.moon-rays{
+
+width:320px;
+height:320px;
+
+top:-70px;
+right:-70px;
+
+}
+
+.moon-clouds{
+
+width:420px;
+height:220px;
+
+top:-20px;
+right:-120px;
 
 }
 
@@ -2218,5 +2569,206 @@ backdrop-filter:none;
 -webkit-backdrop-filter:none;
 
 padding:0;
+
+}
+
+
+
+/*====================================================
+        TABLET LANDSCAPE
+        (Samsung Tab A7 / similar, Instagram in-app browser)
+====================================================*/
+
+@media(orientation:landscape) and (max-height:700px) and (min-width:901px){
+
+.chapter-container,
+.container{
+
+padding:28px 45px;
+
+}
+
+#title{
+
+font-size:56px;
+
+margin-bottom:14px;
+
+}
+
+#subtitle{
+
+font-size:19px;
+
+line-height:30px;
+
+margin-bottom:22px;
+
+}
+
+#chapterTitle{
+
+font-size:44px;
+
+margin-bottom:18px;
+
+}
+
+#chapterText{
+
+font-size:18px;
+
+line-height:28px;
+
+min-height:auto;
+
+}
+
+.content{
+
+gap:35px;
+
+margin-top:10px;
+
+}
+
+.image{
+
+flex:0 0 170px;
+
+}
+
+#storyImage,
+#storyImage2{
+
+width:150px;
+
+}
+
+button{
+
+margin-top:20px;
+
+padding:13px 30px;
+
+font-size:18px;
+
+}
+
+.moon{
+
+width:95px;
+
+height:95px;
+
+top:18px;
+
+right:20px;
+
+}
+
+.moon-haze{
+
+width:220px;
+
+height:220px;
+
+top:-45px;
+
+right:-42px;
+
+}
+
+.moon-rays{
+
+width:250px;
+
+height:250px;
+
+top:-58px;
+
+right:-58px;
+
+}
+
+.moon-clouds{
+
+width:330px;
+
+height:170px;
+
+top:-15px;
+
+right:-95px;
+
+}
+
+#celebrationStage{
+
+height:230px;
+
+margin-top:12px;
+
+}
+
+#chapter6Title{
+
+font-size:44px;
+
+margin-bottom:10px;
+
+}
+
+#chapter6Text{
+
+font-size:17px !important;
+
+line-height:26px !important;
+
+margin-top:8px !important;
+
+margin-bottom:16px !important;
+
+}
+
+#finalHeading{
+
+font-size:46px;
+
+line-height:54px;
+
+margin-bottom:16px;
+
+}
+
+#finalText1{
+
+font-size:22px;
+
+margin-top:8px;
+
+}
+
+#finalText2{
+
+font-size:20px;
+
+margin-top:14px;
+
+}
+
+#finalSignature{
+
+margin-top:28px;
+
+font-size:18px;
+
+}
+
+#surpriseTitle{
+
+font-size:48px;
+
+}
 
 }
