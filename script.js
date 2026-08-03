@@ -394,9 +394,26 @@ const imagesToPreload = [
 
 ];
 
+const loadingScreen = document.getElementById("loadingScreen");
+const loadingStatus = document.getElementById("loadingStatus");
+const loadingBarFill = document.getElementById("loadingBarFill");
+const loadingPercent = document.getElementById("loadingPercent");
+
+const loadingMessages = [
+
+    "Loading stars...",
+
+    "Collecting memories...",
+
+    "Preparing something special..."
+
+];
+
 function preloadImages(callback){
 
     let loaded = 0;
+
+    const total = imagesToPreload.length;
 
     imagesToPreload.forEach(src=>{
 
@@ -413,9 +430,48 @@ function preloadImages(callback){
 
         loaded++;
 
-        if(loaded === imagesToPreload.length){
+        const percent = Math.round((loaded/total)*100);
 
-            callback();
+        loadingBarFill.style.width = percent+"%";
+
+        loadingPercent.innerHTML = percent+"%";
+
+        const messageIndex =
+        Math.min(
+
+        Math.floor((loaded/total)*loadingMessages.length),
+
+        loadingMessages.length-1
+
+        );
+
+        if(loadingStatus.dataset.index != messageIndex){
+
+            loadingStatus.dataset.index = messageIndex;
+
+            loadingStatus.style.animation = "none";
+
+            void loadingStatus.offsetWidth;
+
+            loadingStatus.innerHTML = loadingMessages[messageIndex];
+
+            loadingStatus.style.animation = "statusFade .6s ease";
+
+        }
+
+        if(loaded === total){
+
+            loadingStatus.dataset.index = "done";
+
+            loadingStatus.style.animation = "none";
+
+            void loadingStatus.offsetWidth;
+
+            loadingStatus.innerHTML = "Ready ❤️";
+
+            loadingStatus.style.animation = "statusFade .6s ease";
+
+            setTimeout(callback,900);
 
         }
 
@@ -425,9 +481,15 @@ function preloadImages(callback){
 
 preloadImages(()=>{
 
-    meteorLoop();
+    loadingScreen.classList.add("fade-out");
 
-    loadLandingPage();
+    setTimeout(()=>{
+
+        meteorLoop();
+
+        loadLandingPage();
+
+    },1000);
 
 });
 // ======================================================
