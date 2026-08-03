@@ -2761,6 +2761,364 @@ transform:translateY(0);
 
 
 /*====================================================
+        NEBULA GLOW
+====================================================*/
+
+.nebula-container{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+
+
+.nebula{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(60px);
+
+    will-change:
+
+    transform,
+
+    opacity;
+
+}
+
+
+
+.nebula1{
+
+    top:8%;
+
+    left:12%;
+
+    width:420px;
+
+    height:420px;
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    rgba(120,140,255,.10),
+
+    transparent 70%);
+
+    animation:
+
+    nebulaPulse 14s ease-in-out infinite;
+
+}
+
+
+
+.nebula2{
+
+    top:58%;
+
+    left:68%;
+
+    width:500px;
+
+    height:500px;
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    rgba(255,120,180,.08),
+
+    transparent 70%);
+
+    animation:
+
+    nebulaPulse 18s ease-in-out infinite;
+
+    animation-delay:4s;
+
+}
+
+
+
+.nebula3{
+
+    top:72%;
+
+    left:8%;
+
+    width:350px;
+
+    height:350px;
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    rgba(140,200,255,.07),
+
+    transparent 70%);
+
+    animation:
+
+    nebulaPulse 16s ease-in-out infinite;
+
+    animation-delay:8s;
+
+}
+
+
+
+@keyframes nebulaPulse{
+
+0%{
+
+opacity:.6;
+
+transform:scale(1);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.15);
+
+}
+
+100%{
+
+opacity:.6;
+
+transform:scale(1);
+
+}
+
+}
+
+
+
+/*====================================================
+        DRIFTING FOG
+====================================================*/
+
+.fog-container{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+
+
+.fog{
+
+    position:absolute;
+
+    width:900px;
+
+    height:140px;
+
+    background:
+
+    linear-gradient(
+
+    to right,
+
+    transparent,
+
+    rgba(255,255,255,.035),
+
+    transparent);
+
+    filter:blur(20px);
+
+    border-radius:50%;
+
+    will-change:transform;
+
+}
+
+
+
+.fog1{
+
+    top:68%;
+
+    left:-60%;
+
+    animation:
+
+    fogDrift1 55s linear infinite;
+
+}
+
+
+
+.fog2{
+
+    top:38%;
+
+    left:-75%;
+
+    width:1100px;
+
+    opacity:.7;
+
+    animation:
+
+    fogDrift2 70s linear infinite;
+
+    animation-delay:10s;
+
+}
+
+
+
+@keyframes fogDrift1{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+100%{
+
+transform:translateX(170vw);
+
+}
+
+}
+
+
+
+@keyframes fogDrift2{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+100%{
+
+transform:translateX(180vw);
+
+}
+
+}
+
+
+
+/*====================================================
+        FLOATING PARTICLES
+====================================================*/
+
+.particle-container{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+
+
+.particle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:
+
+    rgba(200,220,255,.55);
+
+    box-shadow:
+
+    0 0 6px rgba(200,220,255,.6);
+
+    animation:
+
+    particleDrift linear infinite;
+
+    will-change:
+
+    transform,
+
+    opacity;
+
+}
+
+
+
+@keyframes particleDrift{
+
+0%{
+
+transform:translateY(0);
+
+opacity:0;
+
+}
+
+10%{
+
+opacity:1;
+
+}
+
+90%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-130px);
+
+opacity:0;
+
+}
+
+}
+
+
+
+/*====================================================
         TABLET LANDSCAPE
         (Samsung Tab A7 / similar, Instagram in-app browser)
 ====================================================*/
