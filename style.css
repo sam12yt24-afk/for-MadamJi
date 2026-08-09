@@ -1975,6 +1975,10 @@ margin-top:45px;
 .star,
 .shooting-star,
 .moon,
+.moon-haze,
+.moon-rays,
+.cloud,
+.fog,
 #storyImage{
 
 will-change:
@@ -3269,6 +3273,88 @@ opacity:1;
 transform:translateY(-130px);
 
 opacity:0;
+
+}
+
+}
+
+
+
+/*====================================================
+        CURSOR DUST
+====================================================*/
+
+.cursor-dust-container{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:50;
+
+}
+
+
+
+.cursor-dust{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    #ffffff,
+
+    #ffb3d1 55%,
+
+    transparent 80%);
+
+    box-shadow:
+
+    0 0 6px #fff,
+
+    0 0 12px #ff9dc7;
+
+    animation:
+
+    dustFade 1s ease-out forwards;
+
+}
+
+
+
+@keyframes dustFade{
+
+0%{
+
+opacity:.9;
+
+transform:
+
+translate(0,0)
+
+scale(1);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+
+translate(var(--dx),var(--dy))
+
+scale(.3);
 
 }
 

@@ -90,24 +90,43 @@ let typing = false;
 
 let musicStarted = false;
 
+let balloonInterval = null;
+
 
 
 // ======================================================
 // MUSIC
 // ======================================================
 
-music.volume = 0.50;
-
 function startMusic(){
 
 if(musicStarted) return;
+
+music.volume = 0;
 
 music.play().catch(()=>{});
 
 musicStarted = true;
 
-}
+let vol = 0;
 
+const fadeIn = setInterval(()=>{
+
+    vol += 0.02;
+
+    if(vol >= 0.50){
+
+        vol = 0.50;
+
+        clearInterval(fadeIn);
+
+    }
+
+    music.volume = vol;
+
+},80);
+
+}
 
 
 // ======================================================
@@ -211,12 +230,114 @@ particleContainer.appendChild(particle);
 
 
 // ======================================================
+// CURSOR DUST EFFECT
+// ======================================================
+
+const cursorDustContainer =
+document.getElementById("cursorDustContainer");
+
+let lastDustTime = 0;
+
+function spawnCursorDust(x,y){
+
+    const now = Date.now();
+
+    if(now - lastDustTime < 60) return;
+
+    lastDustTime = now;
+
+    const dust = document.createElement("div");
+
+    dust.className = "cursor-dust";
+
+    const size = Math.random()*3 + 2;
+
+    dust.style.width = size+"px";
+
+    dust.style.height = size+"px";
+
+    dust.style.left = x+"px";
+
+    dust.style.top = y+"px";
+
+    const dx = (Math.random()-0.5)*30;
+
+    const dy = -(Math.random()*25 + 10);
+
+    dust.style.setProperty("--dx",dx+"px");
+
+    dust.style.setProperty("--dy",dy+"px");
+
+    cursorDustContainer.appendChild(dust);
+
+    setTimeout(()=>{
+
+        dust.remove();
+
+    },1000);
+
+}
+
+document.addEventListener("mousemove",(e)=>{
+
+    spawnCursorDust(e.clientX,e.clientY);
+
+});
+
+document.addEventListener("touchmove",(e)=>{
+
+    if(e.touches && e.touches[0]){
+
+        spawnCursorDust(
+
+        e.touches[0].clientX,
+
+        e.touches[0].clientY
+
+        );
+
+    }
+
+},{passive:true});
+
+
+
+// ======================================================
 // INITIALIZE BACKGROUND
 // ======================================================
 
-createStars();
+const isCompactDevice =
+window.innerWidth <= 1100 ||
+window.innerHeight <= 700;
 
-createParticles();
+createStars(isCompactDevice ? 220 : 350);
+
+createParticles(isCompactDevice ? 20 : 35);
+
+
+
+// ======================================================
+// GYROSCOPE PARALLAX (TABLET TILT)
+// ======================================================
+
+function initTiltParallax(){
+
+    window.addEventListener("deviceorientation",(e)=>{
+
+        const tiltX =
+        Math.max(-6,Math.min(6,(e.gamma ?? 0)/5));
+
+        const tiltY =
+        Math.max(-6,Math.min(6,((e.beta ?? 45)-45)/7));
+
+        starContainer.style.transform =
+        `translate(${tiltX}px,${tiltY}px)`;
+
+    });
+
+}
+
+initTiltParallax();
 // ======================================================
 // PART 1B
 // SHOOTING STARS + TYPEWRITER ENGINE
@@ -1286,7 +1407,7 @@ decorations.appendChild(streamer);
 
 function releaseBalloons(){
 
-setInterval(()=>{
+balloonInterval = setInterval(()=>{
 
 const balloon =
 document.createElement("div");
@@ -1403,7 +1524,7 @@ cake.addEventListener("touchmove",(e)=>{
 
 cutCake();
 
-});
+},{passive:true});
 
 }
 
@@ -1581,6 +1702,8 @@ document.getElementById("finalMeteor");
 
 function startFinalChapter(){
 
+    clearInterval(balloonInterval);
+
     document
     .getElementById("chapter6")
     .classList.remove("active");
@@ -1734,12 +1857,13 @@ function typeFinalText2(){
 
 ()=>{
 
+    launchConfetti();
+
     setTimeout(typeSignature,700);
 
 });
 
 }
-
 
 
 function typeSignature(){
