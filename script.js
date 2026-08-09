@@ -133,7 +133,11 @@ const fadeIn = setInterval(()=>{
 // SOUND EFFECTS
 // ======================================================
 
+const brokenSounds = new Set();
+
 function playSound(id, volume=0.15){
+
+    if(brokenSounds.has(id)) return;
 
     const original = document.getElementById(id);
 
@@ -143,7 +147,17 @@ function playSound(id, volume=0.15){
 
     sound.volume = volume;
 
-    sound.play().catch(()=>{});
+    sound.addEventListener("error",()=>{
+
+        brokenSounds.add(id);
+
+    });
+
+    sound.play().catch(()=>{
+
+        brokenSounds.add(id);
+
+    });
 
 }
 
