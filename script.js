@@ -242,7 +242,7 @@ function spawnCursorDust(x,y){
 
     const now = Date.now();
 
-    if(now - lastDustTime < 60) return;
+    if(now - lastDustTime < 110) return;
 
     lastDustTime = now;
 
@@ -274,7 +274,7 @@ function spawnCursorDust(x,y){
 
         dust.remove();
 
-    },1000);
+    },800);
 
 }
 
@@ -322,16 +322,32 @@ createParticles(isCompactDevice ? 20 : 35);
 
 function initTiltParallax(){
 
+    let latestEvent = null;
+
+    let ticking = false;
+
     window.addEventListener("deviceorientation",(e)=>{
 
-        const tiltX =
-        Math.max(-6,Math.min(6,(e.gamma ?? 0)/5));
+        latestEvent = e;
 
-        const tiltY =
-        Math.max(-6,Math.min(6,((e.beta ?? 45)-45)/7));
+        if(ticking) return;
 
-        starContainer.style.transform =
-        `translate(${tiltX}px,${tiltY}px)`;
+        ticking = true;
+
+        requestAnimationFrame(()=>{
+
+            const tiltX =
+            Math.max(-6,Math.min(6,(latestEvent.gamma ?? 0)/5));
+
+            const tiltY =
+            Math.max(-6,Math.min(6,((latestEvent.beta ?? 45)-45)/7));
+
+            starContainer.style.transform =
+            `translate(${tiltX}px,${tiltY}px)`;
+
+            ticking = false;
+
+        });
 
     });
 
@@ -466,13 +482,13 @@ finished
 
         if(character === "\n"){
 
-            element.innerHTML += "<br>";
+            element.insertAdjacentHTML("beforeend","<br>");
 
         }
 
         else{
 
-            element.innerHTML += character;
+            element.insertAdjacentHTML("beforeend",character);
 
         }
 
@@ -768,7 +784,7 @@ I still think that's one of the nicest things fate has ever done.`;
 
     if(h < heading.length){
 
-        chapterTitle.innerHTML += heading.charAt(h);
+        chapterTitle.insertAdjacentHTML("beforeend",heading.charAt(h));
 
         h++;
 
@@ -792,13 +808,13 @@ I still think that's one of the nicest things fate has ever done.`;
 
             if(ch=="\n"){
 
-                chapterText.innerHTML+="<br>";
+                chapterText.insertAdjacentHTML("beforeend","<br>");
 
             }
 
             else{
 
-                chapterText.innerHTML+=ch;
+                chapterText.insertAdjacentHTML("beforeend",ch);
 
             }
 
@@ -892,7 +908,7 @@ function typeHeading3(){
 
     if(c3h < chapter3Heading.length){
 
-        chapter3Title.innerHTML += chapter3Heading.charAt(c3h);
+        chapter3Title.insertAdjacentHTML("beforeend",chapter3Heading.charAt(c3h));
 
         c3h++;
 
@@ -916,13 +932,13 @@ function typeMessage3(){
 
         if(ch === "\n"){
 
-            chapter3Text.innerHTML += "<br>";
+            chapter3Text.insertAdjacentHTML("beforeend","<br>");
 
         }
 
         else{
 
-            chapter3Text.innerHTML += ch;
+            chapter3Text.insertAdjacentHTML("beforeend",ch);
 
         }
 
@@ -1013,7 +1029,7 @@ function typeHeading4(){
 
     if(c4h < chapter4Heading.length){
 
-        chapter4Title.innerHTML += chapter4Heading.charAt(c4h);
+        chapter4Title.insertAdjacentHTML("beforeend",chapter4Heading.charAt(c4h));
 
         c4h++;
 
@@ -1037,13 +1053,13 @@ function typeMessage4(){
 
         if(ch === "\n"){
 
-            chapter4Text.innerHTML += "<br>";
+            chapter4Text.insertAdjacentHTML("beforeend","<br>");
 
         }
 
         else{
 
-            chapter4Text.innerHTML += ch;
+            chapter4Text.insertAdjacentHTML("beforeend",ch);
 
         }
 
@@ -1150,8 +1166,13 @@ function typeHeading5(){
 
     if(c5h < chapter5Heading.length){
 
-        chapter5Title.innerHTML +=
-        chapter5Heading.charAt(c5h);
+        chapter5Title.insertAdjacentHTML(
+
+        "beforeend",
+
+        chapter5Heading.charAt(c5h)
+
+        );
 
         c5h++;
 
@@ -1176,13 +1197,13 @@ function typeMessage5(){
 
         if(ch === "\n"){
 
-            chapter5Text.innerHTML += "<br>";
+            chapter5Text.insertAdjacentHTML("beforeend","<br>");
 
         }
 
         else{
 
-            chapter5Text.innerHTML += ch;
+            chapter5Text.insertAdjacentHTML("beforeend",ch);
 
         }
 
@@ -1778,13 +1799,13 @@ finished
 
         if(ch=="\n"){
 
-            element.innerHTML+="<br>";
+            element.insertAdjacentHTML("beforeend","<br>");
 
         }
 
         else{
 
-            element.innerHTML+=ch;
+            element.insertAdjacentHTML("beforeend",ch);
 
         }
 

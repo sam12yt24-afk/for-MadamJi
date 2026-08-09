@@ -106,6 +106,8 @@ body{
 
     z-index:0;
 
+    will-change:transform;
+
 }
 
 
@@ -3320,13 +3322,17 @@ opacity:0;
 
     box-shadow:
 
-    0 0 6px #fff,
-
-    0 0 12px #ff9dc7;
+    0 0 8px rgba(255,157,199,.7);
 
     animation:
 
-    dustFade 1s ease-out forwards;
+    dustFade .8s ease-out forwards;
+
+    will-change:
+
+    transform,
+
+    opacity;
 
 }
 
