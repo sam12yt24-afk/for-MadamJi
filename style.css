@@ -224,10 +224,7 @@ transform:scale(.8);
 
     overflow:hidden;
 
-    animation:
-
-    moonGlow 8s ease-in-out infinite;
-
+    /* Removed moonGlow animation - continuous filter/brightness was costly */
     z-index:3;
 
 }
@@ -416,10 +413,7 @@ filter:brightness(1);
 
     z-index:2;
 
-    animation:
-
-    hazeBreathe 10s ease-in-out infinite;
-
+    /* Removed hazeBreathe animation - blur + scale was repainting constantly */
 }
 
 @keyframes hazeBreathe{
@@ -1668,7 +1662,10 @@ width:160px;
         SMOOTH TRANSITIONS
 ====================================================*/
 
-*{
+/* Scoped to interactive elements only - removed from * to reduce main-thread load */
+button,
+a,
+img{
 
 transition:
 
@@ -1676,7 +1673,11 @@ color .3s,
 
 background-color .3s,
 
-border-color .3s;
+border-color .3s,
+
+transform .3s,
+
+box-shadow .3s;
 
 }
 
@@ -1769,6 +1770,7 @@ user-select:none;
         CONTAINER FADE
 ====================================================*/
 
+/* Removed infinite cardBreathe - was running on hidden chapters too */
 .chapter-container,
 .container{
 
@@ -1776,11 +1778,7 @@ animation:
 
 pageAppear
 
-1.2s ease,
-
-cardBreathe
-
-9s ease-in-out infinite;
+1.2s ease;
 
 }
 
@@ -1840,6 +1838,7 @@ translateY(0);
         GLOWING TITLE
 ====================================================*/
 
+/* Removed infinite animations - were running on hidden chapters and blocking typewriter */
 #title,
 #chapterTitle,
 #chapter3Title,
@@ -1847,15 +1846,12 @@ translateY(0);
 #chapter5Title,
 #chapter6Title{
 
-animation:
+/* Static glow only - no continuous animation */
+text-shadow:
 
-titleGlow
+0 0 18px white,
 
-4s ease-in-out infinite,
-
-titleBreathe
-
-6s ease-in-out infinite;
+0 0 35px rgba(255,255,255,.25);
 
 }
 
@@ -1970,26 +1966,7 @@ margin-top:45px;
 
 
 
-/*====================================================
-        PERFORMANCE
-====================================================*/
 
-.star,
-.shooting-star,
-.moon,
-.moon-haze,
-.moon-rays,
-.cloud,
-.fog,
-#storyImage{
-
-will-change:
-
-transform,
-
-opacity;
-
-}
 
 
 
