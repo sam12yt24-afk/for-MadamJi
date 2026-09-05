@@ -3485,6 +3485,70 @@ margin-top:12px;
 
 }
 
+#cakeArea{
+
+top:48%;
+
+}
+
+#birthdayCake{
+
+width:130px;
+
+}
+
+#cakeInstruction{
+
+font-size:14px !important;
+
+margin-top:6px !important;
+
+line-height:20px !important;
+
+}
+
+.wish-box{
+
+padding:14px;
+
+max-width:300px;
+
+margin-top:14px;
+
+}
+
+.wish-box h3{
+
+font-size:18px;
+
+margin-bottom:8px;
+
+}
+
+.wish-box p{
+
+font-size:14px;
+
+line-height:22px;
+
+}
+
+#wishArea{
+
+bottom:8px;
+
+font-size:16px;
+
+}
+
+#wishArea p{
+
+font-size:16px;
+
+line-height:24px;
+
+}
+
 #chapter6Title{
 
 font-size:44px;
