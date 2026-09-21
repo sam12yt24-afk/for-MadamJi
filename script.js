@@ -1846,7 +1846,7 @@ function typeFinalHeading(){
         finalHeading,
 
 `Happy Birthday,
-Meri Madam Jiii ❤️`,
+Meri Madam Ji ❤️`,
 
 55,
 
