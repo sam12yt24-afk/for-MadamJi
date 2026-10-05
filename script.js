@@ -1928,3 +1928,107 @@ function finalEffect(){
   
 
 }
+
+
+
+// ======================================================
+// CAT MASCOT
+// ======================================================
+
+const catMascot =
+document.getElementById("catMascot");
+
+const catHeartsContainer =
+document.getElementById("catHearts");
+
+const catBubbleEl =
+document.getElementById("catBubble");
+
+const catReactions = [
+
+"mrow! 💗",
+
+"purrr~",
+
+"hehe, that tickled!",
+
+"meow meow!",
+
+"*happy tail wiggle*"
+
+];
+
+let catBubbleTimeout = null;
+
+let catHappyTimeout = null;
+
+function spawnCatHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "cat-heart";
+
+    heart.innerHTML = "💗";
+
+    const drift = (Math.random()-0.5)*50;
+
+    heart.style.setProperty("--hx",drift+"px");
+
+    heart.style.left = (35 + Math.random()*20)+"%";
+
+    catHeartsContainer.appendChild(heart);
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },1100);
+
+}
+
+function showCatBubble(){
+
+    const text =
+    catReactions[Math.floor(Math.random()*catReactions.length)];
+
+    catBubbleEl.innerHTML = text;
+
+    catBubbleEl.classList.add("show");
+
+    clearTimeout(catBubbleTimeout);
+
+    catBubbleTimeout = setTimeout(()=>{
+
+        catBubbleEl.classList.remove("show");
+
+    },1600);
+
+}
+
+catMascot.addEventListener("click",()=>{
+
+    catMascot.classList.remove("happy");
+
+    void catMascot.offsetWidth;
+
+    catMascot.classList.add("happy");
+
+    for(let i=0;i<5;i++){
+
+        setTimeout(spawnCatHeart, i*80);
+
+    }
+
+    showCatBubble();
+
+    playSound("catSound",0.15);
+
+    clearTimeout(catHappyTimeout);
+
+    catHappyTimeout = setTimeout(()=>{
+
+        catMascot.classList.remove("happy");
+
+    },800);
+
+});
