@@ -229,6 +229,10 @@ transform:scale(.8);
 
     z-index:3;
 
+    cursor:pointer;
+
+    touch-action:manipulation;
+
 }
 
 
@@ -4272,7 +4276,6 @@ opacity:0;
     border-top-color:rgba(255,255,255,.95);
 
 }
-
 #catBubble.show{
 
     opacity:1;
@@ -4283,7 +4286,92 @@ opacity:0;
 
     translateY(0);
 
-}forest-frame img{
+}
+
+
+
+/*====================================================
+        MOON HEART RAINFALL
+====================================================*/
+
+#moonRainContainer{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:4;
+
+}
+
+.moon-rain-heart{
+
+    position:absolute;
+
+    top:-40px;
+
+    opacity:0;
+
+    animation:
+
+    moonRainFall linear forwards;
+
+    will-change:
+
+    transform,
+
+    opacity;
+
+}
+
+@keyframes moonRainFall{
+
+0%{
+
+transform:
+
+translateY(0)
+
+translateX(0)
+
+rotate(0deg);
+
+opacity:0;
+
+}
+
+8%{
+
+opacity:1;
+
+}
+
+88%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+
+translateY(112vh)
+
+translateX(var(--drift))
+
+rotate(var(--rot));
+
+opacity:0;
+
+}
+
+}
+forest-frame img{
 
     width:100%;
 

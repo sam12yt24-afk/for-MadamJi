@@ -2032,3 +2032,105 @@ catMascot.addEventListener("click",()=>{
     },800);
 
 });
+
+
+
+// ======================================================
+// MOON HEART RAINFALL
+// ======================================================
+
+const moonEl =
+document.querySelector(".moon");
+
+const moonRainContainer =
+document.getElementById("moonRainContainer");
+
+const moonHeartEmojis =
+["💗","💖","🩷","💕"];
+
+let lastMoonTapTime = 0;
+
+function spawnRainHeart(delay){
+
+    setTimeout(()=>{
+
+        const heart =
+        document.createElement("div");
+
+        heart.className = "moon-rain-heart";
+
+        heart.innerHTML =
+        moonHeartEmojis[
+
+        Math.floor(Math.random()*moonHeartEmojis.length)
+
+        ];
+
+        const startX =
+        Math.random()*100;
+
+        const drift =
+        (Math.random()-0.5)*120;
+
+        const rotation =
+        (Math.random()-0.5)*160;
+
+        const size =
+        Math.random()*10+14;
+
+        const duration =
+        Math.random()*2+3;
+
+        heart.style.left = startX+"%";
+
+        heart.style.fontSize = size+"px";
+
+        heart.style.setProperty("--drift",drift+"px");
+
+        heart.style.setProperty("--rot",rotation+"deg");
+
+        heart.style.animationDuration = duration+"s";
+
+        moonRainContainer.appendChild(heart);
+
+        setTimeout(()=>{
+
+            heart.remove();
+
+        },duration*1000+200);
+
+    },delay);
+
+}
+
+function triggerHeartRainfall(){
+
+    playSound("moonChimeSound",0.15);
+
+    for(let i=0;i<32;i++){
+
+        spawnRainHeart(Math.random()*900);
+
+    }
+
+}
+
+moonEl.addEventListener("click",()=>{
+
+    const now = Date.now();
+
+    if(now - lastMoonTapTime < 400){
+
+        triggerHeartRainfall();
+
+        lastMoonTapTime = 0;
+
+    }
+
+    else{
+
+        lastMoonTapTime = now;
+
+    }
+
+});
