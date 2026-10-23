@@ -392,7 +392,7 @@ function createMeteor(){
     meteor.style.left = (70 + Math.random()*30) + "%";
 
     meteor.style.animationDuration =
-    (0.8 + Math.random()*1.2) + "s";
+    (1.6 + Math.random()*1.0) + "s";
 
     meteor.style.setProperty(
 
@@ -408,7 +408,7 @@ function createMeteor(){
 
         meteor.remove();
 
-    },2000);
+    },2800);
 
 }
 
